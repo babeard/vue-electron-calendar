@@ -25,11 +25,11 @@
     </div>
     
     <!-- Week -->
-    <div class="flex justify-between mt-5 font-sans leading-loose font-medium select-none">
+    <div class="flex justify-between mt-2 font-sans leading-loose font-medium select-none">
       <div v-for="(d,i) in week" @click="changeSelection(d.date)" :key="i" class="w-12 flex flex-col items-center justify-between cursor-pointer text-grey-darkest">
         <div class="text-grey">{{ d.day }}</div>
         <div 
-          class="h-10 w-10 flex items-center justify-center text-sm font-bold rounded-full" 
+          class="h-8 w-8 flex items-center justify-center text-sm font-bold rounded-full" 
           :class="[
             isSelected(d.date)? isToday(d.date)? 'text-white rounded bg-green' : 'text-white bg-green' : isToday(d.date)? 'border border-green' : '',
           ]"
