@@ -38,6 +38,13 @@
         </div>
       </div>
     </div>
+
+    <!-- List -->
+    <div class="mt-8">
+      <div v-for="(meal, index) in selectedMeals" :key="index">
+        {{meal.name}}
+      </div>
+    </div>
     
   </div>
 </template>
@@ -91,6 +98,14 @@ export default {
       }
 
       return days
+    },
+    selectedMeals() {
+      const { selectedDate: s } = this.$store.state
+      
+      const res = this.$store.state.plan.filter(p => {
+        return s.getDate() == p.date.getDate() && s.getMonth() == p.date.getMonth() && s.getFullYear() == p.date.getFullYear();
+      }).map(m => m.meals )
+      return res[0]
     }
   }
 }
